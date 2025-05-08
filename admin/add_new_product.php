@@ -39,6 +39,7 @@ include "../user/connection.php";
         echo "<option>";
         echo $row["companyname"];
         echo "</option>";
+        
     }
    
     ?>

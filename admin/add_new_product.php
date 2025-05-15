@@ -90,6 +90,35 @@ include "../user/connection.php";
               </div>
             </div>
 
+            <div class="control-group">
+              <label class="control-label">Manufacture Date:</label>
+              <div class="controls">
+                   <input type="date" value="2025-05-05" class="span11" name="manufacture_date" required >
+
+              </div>
+            </div>
+
+             <div class="control-group">
+              <label class="control-label">Expiry Date:</label>
+              <div class="controls">
+                   <input type="date" value="2025-05-05" class="span11" name="expiry_date" required >
+
+              </div>
+            </div>
+             <div class="control-group">
+              <label class="control-label">Best Before:</label>
+              <div class="controls">
+                   <input type="date" value="2025-05-05" class="span11" name="best_date" required >
+
+              </div>
+            </div>
+  <div class="control-group">
+              <label class="control-label">Product Life:</label>
+              <div class="controls">
+                   <input type="number"  class="span11" name="p_age" required >
+
+              </div>
+            </div>
             
         
             
@@ -138,6 +167,10 @@ elseif($_POST['unit']=="Select"){
                   <th>Product Name</th>
                   <th>Unit</th>
                   <th>packing Size</th>
+                  <th>Manufacture Date</th>
+                  <th>Expiry Date</th>
+                  <th>Best Before</th>
+                  <th>Product life</th>
                   
                   <th>EDIT</th>
                   <th>DELETE</th>
@@ -158,6 +191,11 @@ elseif($_POST['unit']=="Select"){
                   <td><?php echo $row["productname"] ; ?> </td>
                   <td><?php echo $row["unit"] ; ?> </td>
                   <td><?php echo $row["packing_size"] ; ?> </td>
+                  <td><?php echo $row["manufacture_date"] ; ?> </td>
+                  <td><?php echo $row["expiry_date"] ; ?> </td>
+                  <td><?php echo $row["best_date"] ; ?> </td>
+                  <td><?php echo $row["p_age"] ; ?> </td>
+
                   <td > <center><div><a href = "edit_product.php?id=<?php echo $row["id"] ; ?> " style='color:green'  > Edit </a></div></center> </td>
                   <td> <center><div><a href = "delete_product.php?id=<?php echo $row["id"] ; ?>"  style='color:red'  > Delete </a> </div></center></td>
                 </tr>
@@ -199,7 +237,7 @@ elseif($_POST['unit']=="Select"){
 }
 else{
 
-  mysqli_query($conn , "INSERT into products values(NULL,'$_POST[productname]','$_POST[companyname]','$_POST[unit]','$_POST[packing_size]')");
+  mysqli_query($conn , "INSERT into products values(NULL,'$_POST[productname]','$_POST[companyname]','$_POST[unit]','$_POST[packing_size]', '$_POST[manufacture_date]','$_POST[expiry_date]','$_POST[best_date]','$_POST[p_age]')");
 
   ?>
 <script type="text/javascript">
